@@ -58,6 +58,9 @@ dataset.tail()
 
 
 ## Output:
+![output1](https://user-images.githubusercontent.com/103240414/164020663-ec24c3e6-6c4e-45fc-9b87-a06a10b83e78.png)
+
+![output2](https://user-images.githubusercontent.com/103240414/164020694-d6a70654-d7a7-4f33-ad2f-f28267196bab.png)
 
 
 
