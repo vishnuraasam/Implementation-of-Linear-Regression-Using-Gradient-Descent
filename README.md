@@ -16,45 +16,52 @@ To write a program to implement the simple linear regression model for predictin
 ## Program:
 ~~~
 /*
-Program to implement the simple linear regression model for predicting the marks scored.
-Developed by: Rasam Vishnu
-RegisterNumber:  2122200400131
+Program to implementation-of-Linear-Regression-Using-Gradient-Descent.
+Developed by: Iniyan S
+RegisterNumber:  212220040053
 */
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-dataset=pd.read_csv("/content/sample_data/student_scores.csv")
-dataset.head()
-X=dataset.iloc[:,:-1].values
-Y=dataset.iloc[:,1].values
-print(X)
-print(Y)
-from sklearn.model_selection import train_test_split
-X_train,X_test, Y_train,Y_test=train_test_split(X,Y,test_size=1/3,random_state=0)
-from sklearn .linear_model import LinearRegression 
-regressor=LinearRegression()
-regressor.fit(X_train,Y_train)
-LinearRegression()
-Y_pred=regressor.predict(X_test)
-plt.scatter(X_train,Y_train,color='yellow')
-plt.plot(X_train,regressor.predict(X_train),color='green')
-plt.title("h vs s(training set)")
-plt.xlabel("Hours")
-plt.ylabel("scores")
-plt.show()
-plt.scatter(X_test,Y_test,color='blue')
-plt.plot(X_test,regressor.predict(X_test),color='green')
-plt.title("h vs s(training set)")
-plt.xlabel("Hours")
-plt.ylabel("scores")
-plt.show()
-dataset.tail()
+data=pd.read_csv("/content/student_scores.csv")
+data.head()
+data.isnull().sum() #returns the number of missing values
+x=data.Hours
+x.head()
+y=data.Scores
+y.head()
+n=len(x)
+m=0
+c=0
+L=0.01
+loss=[]
+for i in range(10000):
+  ypred=m*x+c
+  MSE=(1/n)*sum((ypred-y)*2)
+  dm=(2/n)*sum(x*(ypred-y))
+  dc=(2/n)*sum(ypred-y)
+  c=c-L*dc
+  m=m-L*dm
+  loss.append(MSE)
+print(m,c)
+y_pred=m*x+c
+plt.scatter(x,y,color="red")
+plt.plot(x,y_pred)
+plt.xlabel("Study Hours")
+plt.ylabel("Scores")
+plt.title("Study Hours vs Scores")
+plt.plot(loss)
+plt.xlabel("iterations")
+plt.ylabel("loss")
+
 ~~~
 ## Output:
 
-![output1](https://user-images.githubusercontent.com/103240414/165891492-bf124a6b-82ca-42b3-ad0f-096475116202.png)
+![1](https://user-images.githubusercontent.com/103240414/165910207-2e8b5b5b-cac9-4738-9c8b-d3c23b88d1ee.png)
 
-![output2](https://user-images.githubusercontent.com/103240414/165891516-77bbcfaa-43e0-4070-b158-a5719df700d2.png)
+![2](https://user-images.githubusercontent.com/103240414/165910237-5d01a819-348e-4a70-9b2b-0e8c93c783e8.png)
+
 
 ## Result:
 Thus the program to implement the linear regression using gradient descent is written and verified using python programming.
