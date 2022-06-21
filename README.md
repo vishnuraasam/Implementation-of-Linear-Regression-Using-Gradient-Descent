@@ -17,8 +17,8 @@ To write a program to implement the simple linear regression model for predictin
 ~~~
 /*
 Program to implementation-of-Linear-Regression-Using-Gradient-Descent.
-Developed by: Iniyan S
-RegisterNumber:  212220040053
+Developed by: Rasam vishnu
+RegisterNumber:  212220040131
 */
 
 import numpy as np
